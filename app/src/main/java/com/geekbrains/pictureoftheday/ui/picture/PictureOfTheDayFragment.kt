@@ -88,8 +88,9 @@ class PictureOfTheDayFragment : Fragment() {
         when (item.itemId) {
             R.id.app_bar_fav -> toast("Favourite")
             R.id.app_bar_settings -> {
-                toast("Coming soon")
-//                TODO: Open Settings Fragment
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.add(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
+
             }
         }
         return super.onOptionsItemSelected(item)

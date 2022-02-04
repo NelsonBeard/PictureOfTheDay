@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:padding="@dimen/settings_choose_theme_padding"
+    tools:context=".ui.picture.SettingsFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_choose_theme_text"
+        android:textSize="@dimen/settings_choose_theme_textSize" />
+
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_theme_1"
+        style="@style/Widget.MaterialComponents.Chip.Action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Тема1" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_theme_2"
+        style="@style/Widget.MaterialComponents.Chip.Action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Тема2" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/theme_separator_height"
+        android:background="@color/black" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_dark_theme"
+        style="@style/Widget.MaterialComponents.Chip.Action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Темная тема" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_light_theme"
+        style="@style/Widget.MaterialComponents.Chip.Action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Светлая тема" />
+
+
+</LinearLayout>
+

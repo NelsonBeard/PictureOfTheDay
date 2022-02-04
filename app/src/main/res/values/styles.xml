@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -6,5 +6,25 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
+    </style>
+
+    <style name="AppTheme2" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#4DA34E</item>
+        <item name="colorPrimaryDark">#15432E</item>
+        <item name="colorAccent">#068123</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
+    </style>
+
+
+    <style name="AppFab" parent="AppTheme">
+        <item name="backgroundTint">@color/colorAccent</item>
+        <item name="tint">@color/fab_plus_color</item>
+        <item name="srcCompat">@drawable/ic_plus_fab</item>
+    </style>
+
+    <style name="AppTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="helperTextTextColor">@color/helperText_textColor</item>
     </style>
 </resources>
