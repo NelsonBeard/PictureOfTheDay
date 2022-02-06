@@ -7,14 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import com.geekbrains.pictureoftheday.R
 import kotlinx.android.synthetic.main.fragment_settings.*
 
-class SettingsFragment : Fragment() {
+private const val PREF = "pref"
+private const val THEME = "theme"
 
-    private val PREF = "pref"
+class SettingsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,9 +45,9 @@ class SettingsFragment : Fragment() {
         val sharedPreferences: SharedPreferences =
             requireContext().getSharedPreferences(PREF, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        when (themeId){
-            R.style.AppTheme ->  editor.putString("Theme", "AppTheme").apply()
-            R.style.AppTheme2 ->  editor.putString("Theme", "AppTheme2").apply()
+        when (themeId) {
+            R.style.AppTheme -> editor.putString(THEME, "AppTheme").apply()
+            R.style.AppTheme2 -> editor.putString(THEME, "AppTheme2").apply()
         }
 
         requireActivity().setTheme(themeId)

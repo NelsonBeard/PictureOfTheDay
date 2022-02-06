@@ -4,27 +4,57 @@
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
+
+        <item name="bottomAppBarStyle">@style/AppBottomBar</item>
+        <item name="chipStyle">@style/AppChip</item>
     </style>
 
     <style name="AppTheme2" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#4DA34E</item>
-        <item name="colorPrimaryDark">#15432E</item>
-        <item name="colorAccent">#068123</item>
+        <item name="colorPrimary">@color/colorPrimaryTheme2</item>
+        <item name="colorSecondary">@color/colorSecondaryTheme2</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkTheme2</item>
+        <item name="colorAccent">@color/colorAccentTheme2</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
+
+        <item name="bottomAppBarStyle">@style/AppBottomBar2</item>
+        <item name="chipStyle">@style/AppChip2</item>
     </style>
 
 
-    <style name="AppFab" parent="AppTheme">
-        <item name="backgroundTint">@color/colorAccent</item>
-        <item name="tint">@color/fab_plus_color</item>
-        <item name="srcCompat">@drawable/ic_plus_fab</item>
+    <style name="AppBottomBar" parent="AppTheme">
+        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+        <item name="navigationIcon">@drawable/ic_hamburger_menu_bottom_bar</item>
+
     </style>
+
+    <style name="AppBottomBar2" parent="AppTheme2">
+        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+        <item name="navigationIcon">@drawable/ic_hamburger_menu_bottom_bar</item>
+    </style>
+
+
+    <style name="AppChip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">?attr/colorSecondary</item>
+    </style>
+
+    <style name="AppChip2" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">?attr/colorSecondary</item>
+    </style>
+
 
     <style name="AppTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="helperTextTextColor">@color/helperText_textColor</item>
     </style>
+
+    <style name="AppFab" parent="ShapeAppearanceOverlay.Material3.FloatingActionButton">
+        <item name="android:backgroundTint">@color/black</item>
+        <item name="tint">@color/fab_plus_color</item>
+        <item name="srcCompat">@drawable/ic_plus_fab</item>
+    </style>
+
 </resources>

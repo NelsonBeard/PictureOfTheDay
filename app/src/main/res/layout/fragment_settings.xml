@@ -17,14 +17,12 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_theme_1"
-        style="@style/Widget.MaterialComponents.Chip.Action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Тема1" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_theme_2"
-        style="@style/Widget.MaterialComponents.Chip.Action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Тема2" />
@@ -37,14 +35,12 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_dark_theme"
-        style="@style/Widget.MaterialComponents.Chip.Action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Темная тема" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_light_theme"
-        style="@style/Widget.MaterialComponents.Chip.Action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Светлая тема" />

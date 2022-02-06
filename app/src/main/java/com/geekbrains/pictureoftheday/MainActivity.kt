@@ -7,14 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.geekbrains.pictureoftheday.ui.picture.PictureOfTheDayFragment
 
 private const val PREF = "pref"
+private const val THEME = "theme"
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val sharedPreferences: SharedPreferences =
             getSharedPreferences(PREF, Context.MODE_PRIVATE)
-        val theme = sharedPreferences.getString("Theme", null)
 
-        when (theme) {
+        when (sharedPreferences.getString(THEME, null)) {
             "AppTheme" -> setTheme(R.style.AppTheme)
             "AppTheme2" -> setTheme(R.style.AppTheme2)
         }
