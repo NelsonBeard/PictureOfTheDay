@@ -25,11 +25,11 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        chip_theme_1.setOnClickListener {
-            setTheme(R.style.AppTheme)
+        chip_theme_blue.setOnClickListener {
+            setTheme(R.style.ThemeBlue)
         }
-        chip_theme_2.setOnClickListener {
-            setTheme(R.style.AppTheme2)
+        chip_theme_green.setOnClickListener {
+            setTheme(R.style.ThemeGreen)
         }
 
         chip_dark_theme.setOnClickListener {
@@ -46,8 +46,8 @@ class SettingsFragment : Fragment() {
             requireContext().getSharedPreferences(PREF, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         when (themeId) {
-            R.style.AppTheme -> editor.putString(THEME, "AppTheme").apply()
-            R.style.AppTheme2 -> editor.putString(THEME, "AppTheme2").apply()
+            R.style.ThemeBlue -> editor.putString(THEME, "ThemeBlue").apply()
+            R.style.ThemeGreen -> editor.putString(THEME, "ThemeGreen").apply()
         }
 
         requireActivity().setTheme(themeId)

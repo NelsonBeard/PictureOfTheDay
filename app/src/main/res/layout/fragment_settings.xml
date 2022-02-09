@@ -16,16 +16,16 @@
 
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/chip_theme_1"
+        android:id="@+id/chip_theme_blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Тема1" />
+        android:text="Синяя тема" />
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/chip_theme_2"
+        android:id="@+id/chip_theme_green"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Тема2" />
+        android:text="Зеленая тема" />
 
     <View
         android:id="@+id/view"
@@ -37,13 +37,13 @@
         android:id="@+id/chip_dark_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Темная тема" />
+        android:text="Ночной режим" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip_light_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Светлая тема" />
+        android:text="Дневной режим" />
 
 
 </LinearLayout>

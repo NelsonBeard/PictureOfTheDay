@@ -1,38 +1,12 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
-
-        <item name="bottomAppBarStyle">@style/AppBottomBar</item>
-        <item name="chipStyle">@style/AppChip</item>
-    </style>
-
-    <style name="AppTheme2" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimaryTheme2</item>
-        <item name="colorSecondary">@color/colorSecondaryTheme2</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkTheme2</item>
-        <item name="colorAccent">@color/colorAccentTheme2</item>
-        <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
-
-        <item name="bottomAppBarStyle">@style/AppBottomBar2</item>
-        <item name="chipStyle">@style/AppChip2</item>
-    </style>
-
-
-    <style name="AppBottomBar" parent="AppTheme">
+    <style name="AppBottomBar" parent="ThemeBlue">
         <item name="backgroundTint">?attr/colorPrimaryDark</item>
         <item name="navigationIcon">@drawable/ic_hamburger_menu_bottom_bar</item>
 
     </style>
 
-    <style name="AppBottomBar2" parent="AppTheme2">
+    <style name="AppBottomBar2" parent="ThemeGreen">
         <item name="backgroundTint">?attr/colorPrimaryDark</item>
         <item name="navigationIcon">@drawable/ic_hamburger_menu_bottom_bar</item>
     </style>

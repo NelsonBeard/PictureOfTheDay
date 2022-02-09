@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
             getSharedPreferences(PREF, Context.MODE_PRIVATE)
 
         when (sharedPreferences.getString(THEME, null)) {
-            "AppTheme" -> setTheme(R.style.AppTheme)
-            "AppTheme2" -> setTheme(R.style.AppTheme2)
+            "ThemeBlue" -> setTheme(R.style.ThemeBlue)
+            "ThemeGreen" -> setTheme(R.style.ThemeGreen)
         }
 
 
