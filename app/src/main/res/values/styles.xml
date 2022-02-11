@@ -11,7 +11,6 @@
         <item name="navigationIcon">@drawable/ic_hamburger_menu_bottom_bar</item>
     </style>
 
-
     <style name="AppChip" parent="Widget.MaterialComponents.Chip.Action">
         <item name="chipBackgroundColor">?attr/colorSecondary</item>
     </style>

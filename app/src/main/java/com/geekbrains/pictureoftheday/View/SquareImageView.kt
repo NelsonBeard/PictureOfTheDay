@@ -1,4 +1,4 @@
-package com.geekbrains.pictureoftheday.util
+package com.geekbrains.pictureoftheday.View
 
 import android.content.Context
 import android.util.AttributeSet

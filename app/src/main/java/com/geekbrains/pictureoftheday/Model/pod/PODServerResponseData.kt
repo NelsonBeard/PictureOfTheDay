@@ -1,4 +1,4 @@
-package com.geekbrains.pictureoftheday.ui.picture
+package com.geekbrains.pictureoftheday.Model.pod
 
 import com.google.gson.annotations.SerializedName
 

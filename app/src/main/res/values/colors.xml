@@ -4,6 +4,7 @@
     <color name="colorSecondary">#C8417191</color>
     <color name="colorPrimaryDark">#3F51B5</color>
     <color name="colorAccent">#02051C</color>
+    <color name="colorAccent40Alfa">#6602051C</color>
 
 
     <color name="colorPrimaryTheme2">#4DA34E</color>
@@ -18,5 +19,6 @@
     <color name="color_gray">#A8000000</color>
     <color name="bottom_sheet_description_header_textColor">#000</color>
     <color name="fab_plus_color">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
 
 </resources>

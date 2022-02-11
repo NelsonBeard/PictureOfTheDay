@@ -1,4 +1,4 @@
-package com.geekbrains.pictureoftheday.ui.picture
+package com.geekbrains.pictureoftheday.View.pod
 
 import android.content.Intent
 import android.net.Uri
@@ -10,12 +10,16 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import com.geekbrains.pictureoftheday.MainActivity
+import com.geekbrains.pictureoftheday.Model.pod.PictureOfTheDayData
 import com.geekbrains.pictureoftheday.R
+import com.geekbrains.pictureoftheday.ViewModel.pod.PictureOfTheDayViewModel
+import com.geekbrains.pictureoftheday.View.ApiActivity
+import com.geekbrains.pictureoftheday.View.MainActivity
+import com.geekbrains.pictureoftheday.View.SettingsFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
-import kotlinx.android.synthetic.main.picture_of_the_day_fragment.*
+import kotlinx.android.synthetic.main.fragment_picture_of_the_day.*
 
 class PictureOfTheDayFragment : Fragment() {
 
@@ -31,7 +35,7 @@ class PictureOfTheDayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.picture_of_the_day_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_picture_of_the_day, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -66,17 +70,15 @@ class PictureOfTheDayFragment : Fragment() {
         val context = activity as MainActivity
         context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
         setHasOptionsMenu(true)
+        bottom_app_bar.navigationIcon = null
         fab.setOnClickListener {
             if (isMain) {
                 isMain = false
-                bottom_app_bar.navigationIcon = null
                 bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
                 fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
                 bottom_app_bar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
             } else {
                 isMain = true
-                bottom_app_bar.navigationIcon =
-                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
                 bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
                 fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
                 bottom_app_bar.replaceMenu(R.menu.menu_bottom_bar)
@@ -90,8 +92,8 @@ class PictureOfTheDayFragment : Fragment() {
             R.id.app_bar_settings -> {
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.add(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
-
             }
+            R.id.app_bar_api -> activity?.let { startActivity(Intent(it, ApiActivity::class.java)) }
         }
         return super.onOptionsItemSelected(item)
     }

@@ -1,9 +1,12 @@
-package com.geekbrains.pictureoftheday.ui.picture
+package com.geekbrains.pictureoftheday.ViewModel.pod
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.geekbrains.pictureoftheday.BuildConfig
+import com.geekbrains.pictureoftheday.Model.pod.PODRetrofitImp
+import com.geekbrains.pictureoftheday.Model.pod.PODServerResponseData
+import com.geekbrains.pictureoftheday.Model.pod.PictureOfTheDayData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

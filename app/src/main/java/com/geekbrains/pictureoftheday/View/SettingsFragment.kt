@@ -1,4 +1,4 @@
-package com.geekbrains.pictureoftheday.ui.picture
+package com.geekbrains.pictureoftheday.View
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment
 import com.geekbrains.pictureoftheday.R
 import kotlinx.android.synthetic.main.fragment_settings.*
 
-private const val PREF = "pref"
-private const val THEME = "theme"
+const val PREF = "pref"
+const val THEME = "theme"
 
 class SettingsFragment : Fragment() {
 

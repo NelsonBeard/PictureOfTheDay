@@ -16,4 +16,8 @@
     <dimen name="settings_choose_theme_textSize">20sp</dimen>
     <dimen name="settings_choose_theme_padding">30dp</dimen>
     <dimen name="theme_separator_height">1dp</dimen>
+    <dimen name="mars_photo_info_padding">10dp</dimen>
+    <dimen name="mars_photo_padding_top">50dp</dimen>
+    <dimen name="headLine_textSize">30sp</dimen>
+    <dimen name="notes_list_margin">3dp</dimen>
 </resources>
