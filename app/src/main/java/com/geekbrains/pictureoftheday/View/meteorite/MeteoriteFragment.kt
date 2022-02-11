@@ -8,14 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.pictureoftheday.Model.meteorite.MeteoriteData
 import com.geekbrains.pictureoftheday.R
+import com.geekbrains.pictureoftheday.ViewModel.meteorite.MeteoriteRecyclerAdapter
 import com.geekbrains.pictureoftheday.ViewModel.meteorite.MeteoriteViewModel
-import kotlinx.android.synthetic.main.fragment_meteorite.*
 
 class MeteoriteFragment : Fragment() {
     private lateinit var viewModel: MeteoriteViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,21 +28,25 @@ class MeteoriteFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this)[MeteoriteViewModel::class.java]
         viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
+
+
     }
 
     private fun renderData(data: MeteoriteData) {
 
         when (data) {
             is MeteoriteData.Success -> {
+
                 val serverResponseData = data.serverResponseData
                 val listMeteorites = serverResponseData.near_earth_objects.meteorites
+                val recyclerView: RecyclerView = requireView().findViewById(R.id.recyclerView)
+                recyclerView.setHasFixedSize(true)
 
+                recyclerView.layoutManager = LinearLayoutManager(context)
                 if (listMeteorites.isNullOrEmpty()) {
                     toast("No data")
                 } else {
-                    val meteorite = listMeteorites[1]
-                    meteorite_info.text =
-                        "id " + meteorite.id + "\n name " + meteorite.name + "\n diameter "+ "\n hazardous " + meteorite.hazardous.toString() + "\n"
+                    recyclerView.adapter = MeteoriteRecyclerAdapter(listMeteorites)
                 }
             }
             is MeteoriteData.Loading -> {

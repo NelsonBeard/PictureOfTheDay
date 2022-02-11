@@ -12,6 +12,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.time.LocalDate
 
+val date = LocalDate.now().toString()
+
 class MeteoriteViewModel(
     private val liveDataForViewToObserve: MutableLiveData<MeteoriteData> = MutableLiveData(),
     private val retrofitImp: MeteoriteRetrofitImp = MeteoriteRetrofitImp()
@@ -24,14 +26,12 @@ class MeteoriteViewModel(
 
     private fun sendServerRequest() {
         liveDataForViewToObserve.value = MeteoriteData.Loading(null)
-
-        val date = LocalDate.now().toString()
         val apiKey: String = BuildConfig.NASA_API_KEY
 
         if (apiKey.isBlank()) {
             MeteoriteData.Error(Throwable("You need API key"))
         } else {
-            retrofitImp.getRetrofitImp().getMeteorite(date, date, apiKey).enqueue(object :
+            retrofitImp.getRetrofitImp().getMeteorite("2022-02-10","2022-02-10" , apiKey).enqueue(object :
                 Callback<MeteoriteServerResponseData> {
                 override fun onResponse(
                     call: Call<MeteoriteServerResponseData>,

@@ -21,4 +21,7 @@
     <color name="fab_plus_color">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
 
+    <color name="meteorite_item_background">#2202051C</color>
+    <color name="meteorite_item_hazard_background">#22F32473</color>
+
 </resources>
