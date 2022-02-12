@@ -25,7 +25,7 @@ class MarsViewModel(
     private fun sendServerRequest() {
         liveDataForViewToObserve.value = MarsData.Loading(null)
 
-        val date = LocalDate.now().minusDays(2).toString()
+        val date = LocalDate.now().minusDays(5).toString()
         val apiKey: String = BuildConfig.NASA_API_KEY
 
         if (apiKey.isBlank()) {

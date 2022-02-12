@@ -7,7 +7,6 @@ class MeteoriteServerResponseData(
     @SerializedName("near_earth_objects") val near_earth_objects: NearEarthObjects
 ) {
     data class NearEarthObjects(
-
         @SerializedName("2022-02-10") val meteorites: List<Meteorite>
     ) {
         data class Meteorite(

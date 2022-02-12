@@ -25,4 +25,5 @@
     <dimen name="recyclerview_item_marginBottom">20dp</dimen>
     <dimen name="meteorite_item_margin">5dp</dimen>
     <dimen name="meteorite_item_elevation">3dp</dimen>
+    <dimen name="space_weather_image_margin">50dp</dimen>
 </resources>
