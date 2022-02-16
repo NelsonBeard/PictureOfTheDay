@@ -21,9 +21,8 @@
     <dimen name="headLine_textSize">30sp</dimen>
     <dimen name="notes_list_margin">3dp</dimen>
     <dimen name="recyclerview_item_marginStart">20dp</dimen>
-    <dimen name="recyclerview_item_marginTop">20dp</dimen>
-    <dimen name="recyclerview_item_marginBottom">20dp</dimen>
     <dimen name="meteorite_item_margin">5dp</dimen>
     <dimen name="meteorite_item_elevation">3dp</dimen>
     <dimen name="space_weather_image_margin">50dp</dimen>
+    <dimen name="meteorite_item_height">185dp</dimen>
 </resources>

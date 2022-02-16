@@ -35,7 +35,7 @@ class PictureOfTheDayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_picture_of_the_day, container, false)
+        return inflater.inflate(R.layout.fragment_picture_of_the_day_start, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

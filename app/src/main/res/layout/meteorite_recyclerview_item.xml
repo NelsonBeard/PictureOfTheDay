@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/meteorite_item_height"
     android:layout_margin="@dimen/meteorite_item_margin"
-    android:elevation="@dimen/meteorite_item_elevation"
-    android:orientation="vertical">
+    android:elevation="@dimen/meteorite_item_elevation">
 
 
     <TextView
@@ -13,37 +12,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/recyclerview_item_marginStart"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Name: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/meteor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Name: "
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/meteor_id"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/recyclerview_item_marginStart"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Id: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/meteor_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="id: "
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/meteor_diameter"
         app:layout_constraintTop_toBottomOf="@+id/meteor_name" />
 
     <TextView
@@ -51,100 +54,104 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/recyclerview_item_marginStart"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Diameter, m: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/meteor_diameter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Diameter, m: "
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/meteor_id" />
+        app:layout_constraintTop_toBottomOf="@+id/meteor_id"
+        app:layout_constraintBottom_toTopOf="@+id/meteor_close_approach_date"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/recyclerview_item_marginStart"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Close approach: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/meteor_close_approach_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Close approach: "
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/meteor_diameter" />
+        app:layout_constraintTop_toBottomOf="@+id/meteor_diameter"
+        app:layout_constraintBottom_toTopOf="@+id/meteor_miss_distance"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/recyclerview_item_marginStart"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Miss distance, km: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/meteor_miss_distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Miss distance, km: "
         app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/meteor_close_approach_date" />
+        app:layout_constraintTop_toBottomOf="@+id/meteor_close_approach_date"
+        app:layout_constraintBottom_toTopOf="@+id/meteor_relative_velocity"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/recyclerview_item_marginStart"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Relative velocity, km/s: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/meteor_relative_velocity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
         android:text="Relative velocity, km/s: "
         app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/meteor_miss_distance" />
+        app:layout_constraintTop_toBottomOf="@+id/meteor_miss_distance"
+        app:layout_constraintBottom_toTopOf="@+id/meteor_hazardous"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/recyclerview_item_marginStart"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
-        android:layout_marginBottom="@dimen/recyclerview_item_marginBottom"
-
         android:text="Hazardous: "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <TextView
         android:id="@+id/meteor_hazardous"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/recyclerview_item_marginTop"
-        android:layout_marginBottom="@dimen/recyclerview_item_marginBottom"
         android:text="Hazardous: "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintVertical_bias="1.0" />
-
+        app:layout_constraintTop_toBottomOf="@+id/meteor_relative_velocity"
+        app:layout_constraintHorizontal_chainStyle="spread_inside" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
