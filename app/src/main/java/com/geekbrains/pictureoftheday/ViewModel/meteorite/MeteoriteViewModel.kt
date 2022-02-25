@@ -31,7 +31,7 @@ class MeteoriteViewModel(
         if (apiKey.isBlank()) {
             MeteoriteData.Error(Throwable("You need API key"))
         } else {
-            retrofitImp.getRetrofitImp().getMeteorite("2022-02-10","2022-02-10" , apiKey).enqueue(object :
+            retrofitImp.getRetrofitImp().getMeteorite("2022-02-25","2022-02-25" , apiKey).enqueue(object :
                 Callback<MeteoriteServerResponseData> {
                 override fun onResponse(
                     call: Call<MeteoriteServerResponseData>,

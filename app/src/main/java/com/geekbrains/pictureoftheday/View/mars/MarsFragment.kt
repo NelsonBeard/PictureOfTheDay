@@ -5,31 +5,91 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.ChangeBounds
+import androidx.transition.ChangeImageTransform
+import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import coil.load
 import com.geekbrains.pictureoftheday.Model.mars.MarsData
 import com.geekbrains.pictureoftheday.R
 import com.geekbrains.pictureoftheday.ViewModel.mars.MarsViewModel
-import kotlinx.android.synthetic.main.fragment_mars.*
+import kotlinx.android.synthetic.main.fragment_mars_start.*
 import kotlin.random.Random
+
+const val DURATION: Long = 120
 
 class MarsFragment : Fragment() {
 
     private lateinit var viewModel: MarsViewModel
+    private var show = false
+    private var isExpanded = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_mars, container, false)
+        return inflater.inflate(R.layout.fragment_mars_start, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this)[MarsViewModel::class.java]
         viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
+
+        mars_photos.setOnClickListener {
+            if (!isExpanded) {
+                if (show) hideComponents() else showComponents()
+            }
+        }
+        mars_photos.setOnLongClickListener { expandPicture() }
+    }
+
+    private fun expandPicture(): Boolean {
+        isExpanded = !isExpanded
+        TransitionManager.beginDelayedTransition(
+            constraint_container, TransitionSet()
+                .addTransition(ChangeBounds())
+                .addTransition(ChangeImageTransform())
+        )
+
+        val params: ViewGroup.LayoutParams = mars_photos.layoutParams
+        params.height =
+            if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT
+        mars_photos.layoutParams = params
+        mars_photos.scaleType =
+            if (isExpanded) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+        return true
+    }
+
+    private fun showComponents() {
+        show = true
+
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(requireContext(), R.layout.fragment_mars_end)
+
+        val transition = ChangeBounds()
+        transition.duration = DURATION
+
+        TransitionManager.beginDelayedTransition(constraint_container, transition)
+        constraintSet.applyTo(constraint_container)
+    }
+
+    private fun hideComponents() {
+        show = false
+
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(requireContext(), R.layout.fragment_mars_start)
+
+        val transition = ChangeBounds()
+        transition.duration = DURATION
+
+        TransitionManager.beginDelayedTransition(constraint_container, transition)
+        constraintSet.applyTo(constraint_container)
     }
 
     private fun renderData(data: MarsData) {
