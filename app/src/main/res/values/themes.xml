@@ -9,8 +9,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
 
-        <item name="bottomAppBarStyle">@style/AppBottomBar</item>
         <item name="chipStyle">@style/AppChip</item>
+        <item name="floatingActionButtonStyle">@style/AppFab</item>
     </style>
 
     <style name="ThemeGreen" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -21,6 +21,6 @@
         <item name="colorAccent">@color/colorAccentTheme2</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
 
-        <item name="bottomAppBarStyle">@style/AppBottomBar2</item>
-        <item name="chipStyle">@style/AppChip2</item>
+        <item name="chipStyle">@style/AppChip</item>
+        <item name="floatingActionButtonStyle">@style/AppFab</item>
     </style></resources>

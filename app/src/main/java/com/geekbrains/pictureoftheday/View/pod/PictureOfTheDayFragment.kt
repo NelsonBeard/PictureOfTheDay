@@ -1,34 +1,39 @@
 package com.geekbrains.pictureoftheday.View.pod
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.geekbrains.pictureoftheday.Model.pod.PictureOfTheDayData
 import com.geekbrains.pictureoftheday.R
-import com.geekbrains.pictureoftheday.ViewModel.pod.PictureOfTheDayViewModel
 import com.geekbrains.pictureoftheday.View.ApiActivity
-import com.geekbrains.pictureoftheday.View.MainActivity
 import com.geekbrains.pictureoftheday.View.SettingsFragment
-import com.google.android.material.bottomappbar.BottomAppBar
+import com.geekbrains.pictureoftheday.ViewModel.pod.PictureOfTheDayViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.fragment_picture_of_the_day.*
+import kotlinx.android.synthetic.main.fragment_picture_of_the_day.image_view
+import kotlinx.android.synthetic.main.fragment_picture_of_the_day.input_edit_text
+import kotlinx.android.synthetic.main.fragment_picture_of_the_day.input_layout
+import kotlinx.android.synthetic.main.fragment_picture_of_the_day_start.*
 
 class PictureOfTheDayFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     private lateinit var viewModel: PictureOfTheDayViewModel
 
+    private var isExpanded = false
+
     companion object {
         fun newInstance() = PictureOfTheDayFragment()
-        private var isMain = true
     }
 
     override fun onCreateView(
@@ -47,18 +52,19 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
+        setFAB()
+
         input_layout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
             })
         }
-        setBottomAppBar(view)
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_bottom_bar, menu)
+        fab_layout.setOnClickListener {
+            collapseFab()
+        }
     }
 
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
@@ -66,36 +72,115 @@ class PictureOfTheDayFragment : Fragment() {
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
-    private fun setBottomAppBar(view: View) {
-        val context = activity as MainActivity
-        context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
-        setHasOptionsMenu(true)
-        bottom_app_bar.navigationIcon = null
+    private fun setFAB() {
+        setInitialState()
+
         fab.setOnClickListener {
-            if (isMain) {
-                isMain = false
-                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
-                bottom_app_bar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
+            if (isExpanded) {
+                collapseFab()
             } else {
-                isMain = true
-                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
-                bottom_app_bar.replaceMenu(R.menu.menu_bottom_bar)
+                expandFAB()
             }
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.app_bar_fav -> toast("Favourite")
-            R.id.app_bar_settings -> {
-                activity?.supportFragmentManager?.beginTransaction()
-                    ?.add(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
-            }
-            R.id.app_bar_api -> activity?.let { startActivity(Intent(it, ApiActivity::class.java)) }
+    private fun setInitialState() {
+        fab_api.apply {
+            alpha = 0f
+            isClickable = false
         }
-        return super.onOptionsItemSelected(item)
+        fab_settings.apply {
+            alpha = 0f
+            isClickable = false
+        }
+        fab_fav.apply {
+            alpha = 0f
+            isClickable = false
+        }
+    }
+
+    private fun expandFAB() {
+        isExpanded = true
+        ObjectAnimator.ofFloat(plus_imageview, "rotation", 0f, 135f).start()
+        ObjectAnimator.ofFloat(fab_fav, "translationY", -120f).start()
+        ObjectAnimator.ofFloat(fab_settings, "translationY", -300f).start()
+        ObjectAnimator.ofFloat(fab_api, "translationY", -480f).start()
+
+        fab_fav.animate()
+            .alpha(1f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    fab_fav.isClickable = true
+                    fab_fav.setOnClickListener {
+                        Toast.makeText(requireContext(), "Favorite", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            })
+
+        fab_settings.animate()
+            .alpha(1f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    fab_settings.isClickable = true
+                    fab_settings.setOnClickListener {
+                        activity?.supportFragmentManager?.beginTransaction()
+                            ?.add(R.id.container, SettingsFragment())?.addToBackStack(null)
+                            ?.commit()
+                    }
+                }
+            })
+
+        fab_api.animate()
+            .alpha(1f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    fab_api.isClickable = true
+                    fab_api.setOnClickListener {
+                        activity?.let { startActivity(Intent(it, ApiActivity::class.java)) }
+                    }
+                }
+            })
+    }
+
+    private fun collapseFab() {
+        if (isExpanded) {
+            ObjectAnimator.ofFloat(plus_imageview, "rotation", 135f, 0f).start()
+        }
+        ObjectAnimator.ofFloat(fab_fav, "translationY", 0f).start()
+        ObjectAnimator.ofFloat(fab_settings, "translationY", 0f).start()
+        ObjectAnimator.ofFloat(fab_api, "translationY", 0f).start()
+
+        fab_fav.animate()
+            .alpha(0f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    fab_fav.isClickable = false
+                    fab_fav.setOnClickListener(null)
+                }
+            })
+        fab_settings.animate()
+            .alpha(0f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    fab_settings.isClickable = false
+                    fab_settings.setOnClickListener(null)
+                }
+            })
+        fab_api.animate()
+            .alpha(0f)
+            .setDuration(300)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    fab_api.isClickable = false
+                    fab_api.setOnClickListener(null)
+                }
+            })
+        isExpanded = false
     }
 
     private fun renderData(data: PictureOfTheDayData) {

@@ -3,7 +3,7 @@
     <dimen name="navigation_view_marginStart">8dp</dimen>
     <dimen name="navigation_view_marginTop">8dp</dimen>
     <dimen name="navigation_view_marginEnd">8dp</dimen>
-    <dimen name="bottom_sheet_peekHeight">100dp</dimen>
+    <dimen name="bottom_sheet_peekHeight">50dp</dimen>
     <dimen name="bottom_sheet_line_width">25dp</dimen>
     <dimen name="bottom_sheet_line_height">1dp</dimen>
     <dimen name="bottom_sheet_line_marginTop">5dp</dimen>
@@ -25,4 +25,15 @@
     <dimen name="meteorite_item_elevation">3dp</dimen>
     <dimen name="space_weather_image_margin">50dp</dimen>
     <dimen name="meteorite_item_height">185dp</dimen>
+    <dimen name="fab_margin_bottom">8dp</dimen>
+    <dimen name="wiki_icon_margin_end">16dp</dimen>
+    <dimen name="fab_items_padding_end">16dp</dimen>
+    <dimen name="fab_items_padding_bottom">32dp</dimen>
+    <dimen name="fab_margin_end">16dp</dimen>
+    <dimen name="frame_layout_margin_bottom">50dp</dimen>
+    <dimen name="fab_elevation">5dp</dimen>
+    <dimen name="fab_plus_margin_end">32dp</dimen>
+    <dimen name="fab_plus_margin_bottom">24dp</dimen>
+    <dimen name="fab_plus_elevation">10dp</dimen>
+    <dimen name="fab_layout_margin_top">150dp</dimen>
 </resources>

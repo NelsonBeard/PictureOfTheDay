@@ -1,33 +1,16 @@
 <resources>
 
-    <style name="AppBottomBar" parent="ThemeBlue">
-        <item name="backgroundTint">?attr/colorPrimaryDark</item>
-        <item name="navigationIcon">@drawable/ic_hamburger_menu_bottom_bar</item>
-
-    </style>
-
-    <style name="AppBottomBar2" parent="ThemeGreen">
-        <item name="backgroundTint">?attr/colorPrimaryDark</item>
-        <item name="navigationIcon">@drawable/ic_hamburger_menu_bottom_bar</item>
-    </style>
-
     <style name="AppChip" parent="Widget.MaterialComponents.Chip.Action">
         <item name="chipBackgroundColor">?attr/colorSecondary</item>
     </style>
 
-    <style name="AppChip2" parent="Widget.MaterialComponents.Chip.Action">
-        <item name="chipBackgroundColor">?attr/colorSecondary</item>
+    <style name="AppFab" parent="Widget.Design.FloatingActionButton">
+        <item name="backgroundTint">?attr/colorPrimaryDark</item>
     </style>
-
 
     <style name="AppTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="helperTextTextColor">@color/helperText_textColor</item>
-    </style>
-
-    <style name="AppFab" parent="ShapeAppearanceOverlay.Material3.FloatingActionButton">
-        <item name="android:backgroundTint">@color/black</item>
-        <item name="tint">@color/fab_plus_color</item>
-        <item name="srcCompat">@drawable/ic_plus_fab</item>
+        <item name="android:background">@color/textInput_background</item>
     </style>
 
 </resources>
