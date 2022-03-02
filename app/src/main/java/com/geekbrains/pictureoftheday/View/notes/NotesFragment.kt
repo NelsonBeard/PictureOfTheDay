@@ -5,13 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.geekbrains.pictureoftheday.Model.notes.Note
 import com.geekbrains.pictureoftheday.R
+import com.geekbrains.pictureoftheday.ViewModel.meteorite.ItemTouchHelperCallback
 import com.geekbrains.pictureoftheday.ViewModel.notes.NotesRecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_notes.*
 
 class NotesFragment : Fragment() {
+
+    private lateinit var adapter: NotesRecyclerAdapter
 
     private val notes = arrayListOf(
         Note("")
@@ -28,7 +32,7 @@ class NotesFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val adapter = NotesRecyclerAdapter(notes)
+        adapter = NotesRecyclerAdapter(notes)
         val recyclerView: RecyclerView = requireView().findViewById(R.id.recyclerView_notes)
 
         recyclerView.adapter = adapter
@@ -37,6 +41,8 @@ class NotesFragment : Fragment() {
             recyclerView.scrollToPosition(0)
         }
 
+        ItemTouchHelper(ItemTouchHelperCallback(adapter))
+            .attachToRecyclerView(recyclerView)
     }
 
 }
