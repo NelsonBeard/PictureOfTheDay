@@ -39,7 +39,7 @@ class MeteoriteFragment : Fragment() {
 
                 val serverResponseData = data.serverResponseData
                 val listMeteorites = serverResponseData.near_earth_objects.meteorites
-                val recyclerView: RecyclerView = requireView().findViewById(R.id.recyclerView)
+                val recyclerView: RecyclerView = requireView().findViewById(R.id.recyclerView_meteorite)
                 recyclerView.setHasFixedSize(true)
 
                 recyclerView.layoutManager = LinearLayoutManager(context)

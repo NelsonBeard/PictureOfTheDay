@@ -21,6 +21,7 @@
     <color name="bottom_sheet_description_header_textColor">#000</color>
     <color name="fab_plus_color">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
+    <color name="button_add_note_color">#3F51B5</color>
 
     <color name="meteorite_item_background">#22021C08</color>
     <color name="meteorite_item_hazard_background">#22F32473</color>

@@ -2,7 +2,6 @@ package com.geekbrains.pictureoftheday.ViewModel.meteorite
 
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

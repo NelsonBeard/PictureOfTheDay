@@ -36,4 +36,9 @@
     <dimen name="fab_plus_margin_bottom">24dp</dimen>
     <dimen name="fab_plus_elevation">10dp</dimen>
     <dimen name="fab_layout_margin_top">150dp</dimen>
+    <dimen name="recyclerView_meteorite_margin">8dp</dimen>
+    <dimen name="recyclerView_notes_margin">10dp</dimen>
+    <dimen name="notes_recyclerview_item_margin">10dp</dimen>
+    <dimen name="recycler_item_height">40dp</dimen>
+    <dimen name="notes_recycler_item_padding_start">30dp</dimen>
 </resources>

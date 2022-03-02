@@ -55,7 +55,7 @@
                 android:id="@+id/input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
@@ -65,8 +65,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/frame_layout_margin_bottom"
-        android:layout_marginTop="@dimen/fab_layout_margin_top">
+        android:layout_marginTop="@dimen/fab_layout_margin_top"
+        android:layout_marginBottom="@dimen/frame_layout_margin_bottom">
 
         <FrameLayout
             android:id="@+id/fab_api"
@@ -112,7 +112,7 @@
 
 
         <FrameLayout
-            android:id="@+id/fab_fav"
+            android:id="@+id/fab_notes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
@@ -129,7 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/ic_favourite_menu" />
+                app:srcCompat="@drawable/ic_notes" />
 
         </FrameLayout>
 
