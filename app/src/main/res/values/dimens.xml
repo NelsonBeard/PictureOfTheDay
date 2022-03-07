@@ -39,6 +39,6 @@
     <dimen name="recyclerView_meteorite_margin">8dp</dimen>
     <dimen name="recyclerView_notes_margin">10dp</dimen>
     <dimen name="notes_recyclerview_item_margin">10dp</dimen>
-    <dimen name="recycler_item_height">40dp</dimen>
+    <dimen name="recycler_item_height">60dp</dimen>
     <dimen name="notes_recycler_item_padding_start">30dp</dimen>
 </resources>

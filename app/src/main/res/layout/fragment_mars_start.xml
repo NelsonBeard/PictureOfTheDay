@@ -9,10 +9,11 @@
     <ImageView
         android:id="@+id/mars_photos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_gravity="center"
         android:forceDarkAllowed="false"
         android:paddingTop="@dimen/mars_photo_padding_top"
+        app:layout_constraintBottom_toTopOf="@+id/mars_hint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,8 +23,8 @@
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/mars_photo_info_padding"
         android:textStyle="bold"
-        app:layout_constraintRight_toLeftOf="@id/mars_photos"
-        app:layout_constraintTop_toBottomOf="@id/mars_photos" />
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/rover_name"
