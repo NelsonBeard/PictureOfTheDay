@@ -4,6 +4,7 @@
     <color name="colorSecondary">#C8417191</color>
     <color name="colorPrimaryDark">#3F51B5</color>
     <color name="colorAccent">#02051C</color>
+    <color name="colorAccent40Alfa">#6602051C</color>
 
 
     <color name="colorPrimaryTheme2">#4DA34E</color>
@@ -14,9 +15,16 @@
     <color name="bottom_sheet_background_color">#f6f6fa</color>
     <color name="bottom_sheet_line_color">#005DFF</color>
     <color name="helperText_textColor">#790D0D0E</color>
+    <color name="textInput_background">#80FFFFFF</color>
     <color name="black">#000000</color>
     <color name="color_gray">#A8000000</color>
     <color name="bottom_sheet_description_header_textColor">#000</color>
     <color name="fab_plus_color">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="button_add_note_color">#3F51B5</color>
+
+    <color name="meteorite_item_background">#22021C08</color>
+    <color name="meteorite_item_hazard_background">#22F32473</color>
+    <color name="fab_menu_background">#C9A1A1A1</color>
 
 </resources>
