@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headline"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/recycler_item_height"
+    android:layout_margin="1dp"
+    android:background="@color/white"
+    android:clickable="true"
+    android:gravity="start|center"
+    android:lines="1"
+    android:paddingStart="@dimen/notes_recycler_item_padding_start">
+
+</EditText>
