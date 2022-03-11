@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.geekbrains.pictureoftheday.model.meteorite.MeteoriteData
 import com.geekbrains.pictureoftheday.R
+import com.geekbrains.pictureoftheday.model.meteorite.MeteoriteData
 import com.geekbrains.pictureoftheday.viewModel.meteorite.MeteoriteRecyclerAdapter
 import com.geekbrains.pictureoftheday.viewModel.meteorite.MeteoriteViewModel
 
@@ -28,8 +28,6 @@ class MeteoriteFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this)[MeteoriteViewModel::class.java]
         viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
-
-
     }
 
     private fun renderData(data: MeteoriteData) {
@@ -39,7 +37,8 @@ class MeteoriteFragment : Fragment() {
 
                 val serverResponseData = data.serverResponseData
                 val listMeteorites = serverResponseData.near_earth_objects.meteorites
-                val recyclerView: RecyclerView = requireView().findViewById(R.id.recyclerView_meteorite)
+                val recyclerView: RecyclerView =
+                    requireView().findViewById(R.id.recyclerView_meteorite)
                 recyclerView.setHasFixedSize(true)
 
                 recyclerView.layoutManager = LinearLayoutManager(context)

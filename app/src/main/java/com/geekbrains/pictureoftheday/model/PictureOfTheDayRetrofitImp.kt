@@ -1,4 +1,4 @@
-package com.geekbrains.pictureoftheday.model.spaceweather
+package com.geekbrains.pictureoftheday.model
 
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -8,17 +8,17 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SpaceWeatherRetrofitImp {
+class PictureOfTheDayRetrofitImp {
     private val baseUrl = "https://api.nasa.gov/"
 
-    fun getRetrofitImp(): SpaceWeatherAPI {
+    fun getRetrofitImp(): PictureOfTheDayAPI {
         val podRetrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .client(createOkHttpClient(PODInterceptor()))
             .build()
 
-        return podRetrofit.create(SpaceWeatherAPI::class.java)
+        return podRetrofit.create(PictureOfTheDayAPI::class.java)
     }
 
     private fun createOkHttpClient(interceptor: Interceptor): OkHttpClient {

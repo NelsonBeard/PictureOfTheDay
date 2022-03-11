@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.geekbrains.pictureoftheday.model.meteorite.MeteoriteServerResponseData
 import com.geekbrains.pictureoftheday.R
 import com.geekbrains.pictureoftheday.R.color.*
+import com.geekbrains.pictureoftheday.model.meteorite.serverResponseData.Meteorite
 
-class MeteoriteRecyclerAdapter(private val meteorites: List<MeteoriteServerResponseData.NearEarthObjects.Meteorite>) :
+class MeteoriteRecyclerAdapter(private val meteorites: List<Meteorite>) :
     RecyclerView.Adapter<MeteoriteRecyclerAdapter.MeteoriteViewHolder>() {
     class MeteoriteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.meteor_name)

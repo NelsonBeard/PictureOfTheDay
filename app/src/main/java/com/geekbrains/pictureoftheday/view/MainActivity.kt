@@ -5,8 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.geekbrains.pictureoftheday.R
-import com.geekbrains.pictureoftheday.view.pod.PictureOfTheDayFragment
-import java.util.*
+import com.geekbrains.pictureoftheday.view.pod.PODFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, PictureOfTheDayFragment.newInstance())
+                .replace(R.id.container, PODFragment.newInstance())
                 .commitNow()
         }
     }
