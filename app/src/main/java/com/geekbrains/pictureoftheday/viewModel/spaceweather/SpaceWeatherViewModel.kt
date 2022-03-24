@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.geekbrains.pictureoftheday.BuildConfig
+import com.geekbrains.pictureoftheday.model.PictureOfTheDayRetrofitImp
 import com.geekbrains.pictureoftheday.model.spaceweather.SpaceWeatherData
-import com.geekbrains.pictureoftheday.model.spaceweather.SpaceWeatherRetrofitImp
-import com.geekbrains.pictureoftheday.model.spaceweather.SpaceWeatherServerResponseData
+import com.geekbrains.pictureoftheday.model.spaceweather.serverResponseData.SpaceWeatherServerResponseData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,7 +14,7 @@ import java.time.LocalDate
 
 class SpaceWeatherViewModel(
     private val liveDataForViewToObserve: MutableLiveData<SpaceWeatherData> = MutableLiveData(),
-    private val retrofitImp: SpaceWeatherRetrofitImp = SpaceWeatherRetrofitImp()
+    private val retrofitImp: PictureOfTheDayRetrofitImp = PictureOfTheDayRetrofitImp()
 ) : ViewModel() {
 
     fun getData(): LiveData<SpaceWeatherData> {

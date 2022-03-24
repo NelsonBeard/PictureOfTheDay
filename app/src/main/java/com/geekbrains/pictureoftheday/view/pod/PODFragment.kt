@@ -19,12 +19,12 @@ import androidx.transition.ChangeImageTransform
 import androidx.transition.TransitionManager
 import androidx.transition.TransitionSet
 import coil.load
-import com.geekbrains.pictureoftheday.model.pod.PictureOfTheDayData
+import com.geekbrains.pictureoftheday.model.pod.PODData
 import com.geekbrains.pictureoftheday.R
 import com.geekbrains.pictureoftheday.view.ApiActivity
 import com.geekbrains.pictureoftheday.view.SettingsFragment
 import com.geekbrains.pictureoftheday.view.notes.NotesFragment
-import com.geekbrains.pictureoftheday.viewModel.pod.PictureOfTheDayViewModel
+import com.geekbrains.pictureoftheday.viewModel.pod.PODViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.fragment_mars_start.*
@@ -34,16 +34,16 @@ import kotlinx.android.synthetic.main.fragment_picture_of_the_day.input_edit_tex
 import kotlinx.android.synthetic.main.fragment_picture_of_the_day.input_layout
 import kotlinx.android.synthetic.main.fragment_picture_of_the_day_start.*
 
-class PictureOfTheDayFragment : Fragment() {
+class PODFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
-    private lateinit var viewModel: PictureOfTheDayViewModel
+    private lateinit var viewModel: PODViewModel
 
     private var isExpanded = false
     private var isPictureExpanded = false
 
     companion object {
-        fun newInstance() = PictureOfTheDayFragment()
+        fun newInstance() = PODFragment()
     }
 
     override fun onCreateView(
@@ -55,7 +55,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this)[PictureOfTheDayViewModel::class.java]
+        viewModel = ViewModelProvider(this)[PODViewModel::class.java]
         viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
 
     }
@@ -210,16 +210,16 @@ class PictureOfTheDayFragment : Fragment() {
         isExpanded = false
     }
 
-    private fun renderData(data: PictureOfTheDayData) {
+    private fun renderData(data: PODData) {
         when (data) {
-            is PictureOfTheDayData.Success -> {
+            is PODData.Success -> {
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
                 if (url.isNullOrEmpty()) {
                     toast("Link is empty")
                 } else {
                     image_view.load(url) {
-                        lifecycle(this@PictureOfTheDayFragment)
+                        lifecycle(this@PODFragment)
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
@@ -228,10 +228,10 @@ class PictureOfTheDayFragment : Fragment() {
                     bottom_sheet_description.text = serverResponseData.explanation
                 }
             }
-            is PictureOfTheDayData.Loading -> {
+            is PODData.Loading -> {
                 //Nothing to do
             }
-            is PictureOfTheDayData.Error -> {
+            is PODData.Error -> {
                 toast(data.error.message)
             }
         }

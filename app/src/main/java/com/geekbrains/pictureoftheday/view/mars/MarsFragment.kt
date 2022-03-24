@@ -1,6 +1,10 @@
 package com.geekbrains.pictureoftheday.view.mars
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +19,17 @@ import androidx.transition.ChangeImageTransform
 import androidx.transition.TransitionManager
 import androidx.transition.TransitionSet
 import coil.load
-import com.geekbrains.pictureoftheday.model.mars.MarsData
 import com.geekbrains.pictureoftheday.R
+import com.geekbrains.pictureoftheday.model.mars.MarsData
 import com.geekbrains.pictureoftheday.viewModel.mars.MarsViewModel
+import kotlinx.android.synthetic.main.fragment_mars_end.*
 import kotlinx.android.synthetic.main.fragment_mars_start.*
+import kotlinx.android.synthetic.main.fragment_mars_start.camera_name
+import kotlinx.android.synthetic.main.fragment_mars_start.mars_date
+import kotlinx.android.synthetic.main.fragment_mars_start.mars_hint
+import kotlinx.android.synthetic.main.fragment_mars_start.mars_photos
+import kotlinx.android.synthetic.main.fragment_mars_start.photo_id
+import kotlinx.android.synthetic.main.fragment_mars_start.rover_name
 import kotlin.random.Random
 
 const val DURATION: Long = 120
@@ -89,6 +100,22 @@ class MarsFragment : Fragment() {
     }
 
     private fun renderData(data: MarsData) {
+
+        val spannable =
+            SpannableString("Hint:\n tap on picture to show description\n long press to zoom")
+
+        spannable.setSpan(
+            ForegroundColorSpan(Color.RED),
+            7, 10,
+            Spannable.SPAN_INCLUSIVE_INCLUSIVE
+        )
+        spannable.setSpan(
+            ForegroundColorSpan(Color.RED),
+            43, 53,
+            Spannable.SPAN_INCLUSIVE_INCLUSIVE
+        )
+        mars_hint.text = spannable
+
         when (data) {
             is MarsData.Success -> {
                 val serverResponseData = data.serverResponseData

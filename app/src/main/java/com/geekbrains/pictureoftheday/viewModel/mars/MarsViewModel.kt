@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.geekbrains.pictureoftheday.BuildConfig
+import com.geekbrains.pictureoftheday.model.PictureOfTheDayRetrofitImp
 import com.geekbrains.pictureoftheday.model.mars.MarsData
-import com.geekbrains.pictureoftheday.model.mars.MarsRetrofitImp
-import com.geekbrains.pictureoftheday.model.mars.MarsServerResponseData
+import com.geekbrains.pictureoftheday.model.mars.serverResponseData.MarsServerResponseData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,7 +14,7 @@ import java.time.LocalDate
 
 class MarsViewModel(
     private val liveDataForViewToObserve: MutableLiveData<MarsData> = MutableLiveData(),
-    private val retrofitImp: MarsRetrofitImp = MarsRetrofitImp()
+    private val retrofitImp: PictureOfTheDayRetrofitImp = PictureOfTheDayRetrofitImp()
 ) : ViewModel() {
 
     fun getData(): LiveData<MarsData> {
